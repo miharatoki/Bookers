@@ -1,0 +1,12 @@
+<p id="notice"></p>
+<h1>Bookers</h1>
+
+
+<h2>New book</h2>
+<%= form_with model:@book, local:true do |f| %>
+<p>Title</p>
+<%= f.text_field :title %>
+<p>Body</p>
+<%= f.text_area :body %>
+<br><%= f.submit 'Create Book' %></br>
+<% end %>
