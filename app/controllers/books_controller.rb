@@ -8,13 +8,12 @@ class BooksController < ApplicationController
   end
   
   def create
-    book = Book.new(book_params)
-    if book.save #新規投稿が成功したら
+    @book = Book.new(book_params)
+    if @book.save #新規投稿が成功したら
       flash[:notice] = "Book was successfully created." #サクセルメッセージを表示
-      redirect_to book_path(book.id) 
+      redirect_to book_path(@book) 
     else 
       @books = Book.all
-      @book = Book.new
       render action: :index
     end
   end
@@ -28,10 +27,10 @@ class BooksController < ApplicationController
   end
   
   def update
-    book = Book.find(params[:id])
-    if book.update(book_params)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
       flash[:notice] = "Book was successfully updated." 
-      redirect_to book_path(book.id)
+      redirect_to book_path(@book)
     else
       render action: :edit
     end
