@@ -1,3 +1,15 @@
-<p id="notice"></p>
+<P id="notice"><%= render '/books/successfully' %></p>
+<!--カッコ内はnoticeだけに省略できる-->
+<p>
+ <strong>Title:</strong>
+ <%= @book.title %>
+</p>
 
-<%= @book.title %>
+<P>
+ <strong>Body:</strong>
+ <%= @book.body %>
+</P>
+
+<%= link_to "Edit",edit_book_path(@book) %>
+|
+<%= link_to "Back", books_path %>
